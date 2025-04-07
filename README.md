@@ -28,7 +28,7 @@ A modern, responsive portfolio website template built with Next.js 13, perfect f
 1. Clone this repository:
 ```bash
 git clone https://github.com/yourusername/portfolio-template.git
-cd portfolio-template
+cd portfolio
 ```
 
 2. Install dependencies:
