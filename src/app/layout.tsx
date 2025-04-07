@@ -1,20 +1,15 @@
+"use client";
 import { Sidebar } from "@/components/Sidebar";
 import "./globals.css";
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import { Footer } from "@/components/Footer";
+import { AnimatePresence } from "framer-motion";
 
 const inter = Inter({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
-
-export const metadata: Metadata = {
-  title: "Mukhil Sundararaj - Software Engineer & AI/ML Enthusiast",
-  description:
-    "Mukhil Sundararaj is a Software Engineer and AI/ML enthusiast pursuing his Master's in Computer Science at NYU, passionate about creating innovative solutions.",
-};
 
 export default function RootLayout({
   children,
@@ -29,11 +24,17 @@ export default function RootLayout({
           "flex antialiased h-screen overflow-hidden bg-gray-100"
         )}
       >
-        <Sidebar />
-        <div className="lg:pl-2 lg:pt-2 bg-gray-100 flex-1 overflow-y-auto">
-          <div className="flex-1 bg-white min-h-screen lg:rounded-tl-xl border border-transparent lg:border-neutral-200 overflow-y-auto">
-            {children}
-            <Footer />
+        <div className="flex w-full h-full">
+          <Sidebar />
+          <div className="flex-1 lg:pl-2 lg:pt-2 bg-gray-100 overflow-hidden">
+            <div className="relative h-full bg-white lg:rounded-tl-xl border border-transparent lg:border-neutral-200">
+              <AnimatePresence mode="wait">
+                <div className="absolute inset-0 overflow-y-auto">
+                  {children}
+                  <Footer />
+                </div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </body>
