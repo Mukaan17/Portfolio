@@ -171,7 +171,7 @@ export const Contact = () => {
 
       {submitStatus === 'success' && (
         <Paragraph className="text-green-600 text-center">
-          Thank you for your message! I'll get back to you soon.
+          Thank you for your message! I&apos;ll get back to you soon.
         </Paragraph>
       )}
 
