@@ -125,17 +125,21 @@ export const Navigation = ({
 const SidebarHeader = () => {
   return (
     <div className="flex space-x-2">
-      <Image
-        src="/images/profile.jpg"
-        alt="Mukhil Sundararaj"
-        height="40"
-        width="40"
-        className="object-cover object-center rounded-full flex-shrink-0"
-      />
-      <div className="flex text-sm flex-col">
-        <p className="font-bold text-primary">Mukhil Sundararaj</p>
-        <p className="font-light text-secondary">Software Engineer</p>
-      </div>
+      <Link href="/">
+        <Image
+          src="/images/profile.jpg"
+          alt="Mukhil Sundararaj"
+          height="40"
+          width="40"
+          className="object-cover object-center rounded-full flex-shrink-0"
+        />
+      </Link>
+      <Link href="/" className="group">
+        <div className="flex text-sm flex-col">
+          <p className="font-bold text-primary group-hover:text-blue-600 transition-colors">Mukhil Sundararaj</p>
+          <p className="font-light text-secondary">Software Engineer</p>
+        </div>
+      </Link>
     </div>
   );
 };
