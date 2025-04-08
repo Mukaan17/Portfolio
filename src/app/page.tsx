@@ -17,7 +17,7 @@ export default function Home() {
       </Paragraph>
       <Paragraph className="max-w-xl mt-4">
         With a strong foundation in software development and a passion for artificial intelligence,
-        I combine technical expertise with innovative problem-solving to create impactful solutions.
+        I combine technical expertise with innovative problem-solving skills to create impactful solutions.
       </Paragraph>
       <div className="flex gap-4 mt-6">
         <a
