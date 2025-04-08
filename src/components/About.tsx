@@ -58,7 +58,7 @@ export default function About() {
             <span className="text-blue-400 mr-2">📘</span>
             <div>
               <p className="font-medium">M.S. in Computer Science</p>
-              <p className="text-gray-400">NYU (2024–2026)</p>
+              <p className="text-gray-400">New York University (2024–2026)</p>
             </div>
           </div>
           <div className="flex items-start">
