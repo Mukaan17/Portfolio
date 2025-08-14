@@ -1,9 +1,32 @@
-import projectStrokeHAB from "public/images/project-strokehab.png";
-import projectChatbot from "public/images/project-chatbot.png";
-import projectFacialRecog from "public/images/project-facial-recog.png";
-import projectInstagram from "public/images/project-instagram.png";
+const projectStrokeHAB = "/images/project-strokehab.png";
+const projectChatbot = "/images/project-chatbot.png";
+const projectFacialRecog = "/images/project-facial-recog.png";
+const projectInstagram = "/images/project-instagram.png";
+const projectSubway = "/images/project-subway.png";
 
 export const products = [
+  {
+    href: "https://github.com/Mukaan17/Subway-Dashboard",
+    title: "Subway Dashboard",
+    description: "Interactive dashboard for subway system data visualization and analysis using JavaScript.",
+    thumbnail: projectSubway,
+    images: [projectSubway],
+    stack: ["JavaScript", "HTML", "CSS", "Data Visualization"],
+    slug: "subway-dashboard",
+    content: (
+      <div>
+        <p>
+          Developed an interactive dashboard for subway system data visualization and analysis.
+          The project provides real-time insights into subway operations, passenger flow, and system performance.
+        </p>
+        <p>
+          The dashboard features dynamic data visualization, interactive charts, and responsive design
+          to help users understand complex transit data in an intuitive way. Built with modern JavaScript
+          and web technologies for optimal performance and user experience.
+        </p>
+      </div>
+    ),
+  },
   {
     href: "https://github.com/Mukaan17/Stroke-Rehabilitation-Project",
     title: "StrokeHAB",

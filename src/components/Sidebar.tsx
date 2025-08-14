@@ -137,7 +137,7 @@ const SidebarHeader = () => {
       <Link href="/" className="group">
         <div className="flex text-sm flex-col">
           <p className="font-bold text-primary group-hover:text-blue-600 transition-colors">Mukhil Sundararaj</p>
-          <p className="font-light text-secondary">Software Engineer</p>
+          <p className="font-light text-secondary">CS Grad Student @ NYU</p>
         </div>
       </Link>
     </div>

@@ -13,9 +13,9 @@ export default function Resume() {
         <span className="text-4xl">💼</span>
         <Heading className="font-black">Professional Experience</Heading>
         <Paragraph className="max-w-xl mt-4">
-          Software Engineer with expertise in <Highlight>enterprise applications</Highlight>,{" "}
-          <Highlight>AI/ML solutions</Highlight>, and <Highlight>mobile development</Highlight>.
-          Currently pursuing MS in Computer Science at NYU.
+          CS Grad Student at NYU with expertise in <Highlight>Generative AI</Highlight>,{" "}
+          <Highlight>AI in Finance</Highlight>, <Highlight>Blockchain</Highlight>, and{" "}
+          <Highlight>Offensive Security</Highlight>. Focused on building sustainable AI solutions at scale.
         </Paragraph>
         <WorkHistory />
       </Container>

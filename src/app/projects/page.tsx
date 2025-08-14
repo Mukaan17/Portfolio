@@ -9,7 +9,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Projects | Mukhil Sundararaj",
   description:
-    "Explore Mukhil Sundararaj's projects in software engineering, AI/ML, and full-stack development.",
+    "Explore Mukhil Sundararaj's projects in AI/ML, data visualization, full-stack development, and sustainable AI solutions.",
 };
 
 export default function Projects() {

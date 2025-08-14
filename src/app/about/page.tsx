@@ -12,7 +12,7 @@ import About from "@/components/About";
 export const metadata: Metadata = {
   title: "About | Mukhil Sundararaj",
   description:
-    "Mukhil Sundararaj is a Software Engineer and AI/ML enthusiast pursuing his Master's in Computer Science at NYU.",
+    "Mukhil Sundararaj is a CS Grad Student at NYU focused on building sustainable AI solutions at scale, with expertise in Generative AI, AI in Finance, Blockchain, and Offensive Security.",
 };
 
 export default function AboutPage() {

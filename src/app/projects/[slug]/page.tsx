@@ -11,11 +11,11 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = params.slug;
+  const { slug } = await params;
   const product = products.find((p) => p.slug === slug) as Product | undefined;
   if (product) {
     return {
@@ -24,19 +24,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   } else {
     return {
-      title: "Projects | John Doe",
+      title: "Projects | Mukhil Sundararaj",
       description:
-        "John Doe is a developer, writer and speaker. He is a digital nomad and travels around the world while working remotely.",
+        "Mukhil Sundararaj is a CS Grad Student at NYU focused on building sustainable AI solutions at scale.",
     };
   }
 }
 
-export default function SingleProjectPage({
+export default async function SingleProjectPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const slug = params.slug;
+  const { slug } = await params;
   const product = products.find((p) => p.slug === slug);
 
   if (!product) {

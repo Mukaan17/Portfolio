@@ -13,7 +13,10 @@ export default function About() {
   ];
 
   const skills = [
-    'Java', 'Python', 'C++', 'SQL', 'Flask', 'Spring Boot', 'Docker', 'AWS', 'TensorFlow'
+    'Java', 'Python', 'C++', 'Swift', 'Rust', 'Spring', 'Flask', 'TensorFlow',
+    'PostgreSQL', 'Oracle', 'MongoDB', 'MySQL', 'AWS', 'Kubernetes', 'Docker',
+    'Git', 'VS Code', 'Node.js', 'Next.js', 'React', 'JavaScript', 'TypeScript',
+    'Jenkins', 'Jira', 'Figma', 'Tailwind CSS', 'Vercel'
   ];
 
   return (
@@ -47,9 +50,10 @@ export default function About() {
 
       <div className="max-w-4xl">
         <Paragraph className="mt-4">
-          I&apos;m a passionate Software Engineer and AI/ML enthusiast currently pursuing my Master&apos;s in Computer Science at NYU. 
-          With a strong foundation in both theoretical computer science and practical software development, I&apos;m dedicated to creating 
-          innovative solutions that make a real impact.
+          I&apos;m a passionate CS Grad Student at NYU focused on building sustainable AI solutions at scale. 
+          With expertise in Generative AI, AI in Finance, Blockchain, and Offensive Security, I&apos;m dedicated to creating 
+          innovative solutions that make a real impact. As a Competitive Gamer, ex-Professional Racer, and Offensive Security enthusiast,
+          I bring a unique perspective to problem-solving and technology development.
         </Paragraph>
 
         <Heading as="h3" className="text-2xl font-semibold mt-8 mb-4">Education</Heading>
@@ -95,8 +99,9 @@ export default function About() {
         <Paragraph className="mt-8">
           My journey in technology has been driven by a curiosity to understand and create solutions 
           that combine cutting-edge technology with practical applications. I&apos;m particularly 
-          interested in artificial intelligence and machine learning, and I&apos;m always excited 
-          to take on new challenges that push the boundaries of what&apos;s possible.
+          interested in Generative AI, AI in Finance, Blockchain, and Offensive Security. I&apos;m always excited 
+          to take on new challenges that push the boundaries of what&apos;s possible, whether it&apos;s in gaming, 
+          racing, or cybersecurity.
         </Paragraph>
       </div>
     </div>
