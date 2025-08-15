@@ -1,82 +1,156 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
+import { IconX, IconArrowRight, IconDownload } from "@tabler/icons-react";
+import { isMobile } from "@/lib/utils";
 
 export const Badge = ({
   text,
   href,
+  onDownload,
+  onMobileClose,
   ...props
 }: {
   text: string;
   href: string;
+  onDownload?: (e: React.MouseEvent) => void;
+  onMobileClose?: () => void;
   props?: React.ComponentProps<typeof Link>;
 }) => {
-  return (
-    <Link
-      href={href}
-      className="bg-slate-900 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6 text-white inline-block"
-      {...props}
-    >
-      <motion.span 
-        className="absolute inset-0 overflow-hidden rounded-full"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
-      >
-        <motion.span 
-          className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)]"
-          initial={{ opacity: 0 }}
-          whileHover={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        />
-      </motion.span>
-      <motion.div 
-        className="relative flex space-x-2 items-center z-10 rounded-full bg-transparent py-2 px-4 ring-1 ring-white/10"
-        whileHover={{ scale: 1.05 }}
-        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-      >
-        <div className="relative overflow-hidden h-[20px] w-[80px]">
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={text}
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
-              transition={{ duration: 0.15, ease: "easeInOut" }}
-              className="absolute inset-0 flex items-center"
-            >
-              {text}
-            </motion.span>
-          </AnimatePresence>
-        </div>
-        <motion.svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          initial={{ x: 0 }}
-          whileHover={{ x: 3 }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+  const pathname = usePathname();
+  const router = useRouter();
+  const isResumePage = pathname === "/resume";
+  const [mounted, setMounted] = useState(false);
+
+  // Fix SSR issues by ensuring component is mounted
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleBackClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (isMobile() && onMobileClose) {
+      onMobileClose();
+    }
+    router.back();
+  };
+
+  const handleDownload = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onDownload) {
+      onDownload(e);
+    }
+    if (isMobile() && onMobileClose) {
+      onMobileClose();
+    }
+  };
+
+  // Don't render motion components until mounted to prevent SSR issues
+  if (!mounted) {
+    return (
+      <div className="relative flex items-center gap-3">
+        <Link
+          href={href}
+          className="flex items-center gap-2 px-7 py-4 text-sm font-medium text-white bg-gray-900 rounded-full hover:bg-gray-800 transition-colors shadow-lg"
+          {...props}
         >
-          <motion.path
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-            d="M10.75 8.75L14.25 12L10.75 15.25"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 1 }}
-          />
-        </motion.svg>
+          {text}
+          <IconArrowRight size={16} />
+        </Link>
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative flex items-center gap-3">
+      {/* Main Button */}
+      <motion.div
+        initial={false}
+        animate={{
+          width: isResumePage ? "auto" : "auto",
+          borderRadius: "9999px",
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 300,
+          damping: 30,
+        }}
+        className="overflow-hidden"
+      >
+        <Link
+          href={href}
+          onClick={isResumePage ? handleDownload : undefined}
+          className="flex items-center gap-2 px-6 py-3 text-sm font-medium text-white bg-gray-900 rounded-full hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl"
+          {...props}
+        >
+          <motion.span
+            initial={false}
+            animate={{
+              opacity: 1,
+              scale: 1,
+            }}
+            transition={{ duration: 0.2 }}
+            className="whitespace-nowrap"
+          >
+            {text}
+          </motion.span>
+          <motion.div
+            initial={false}
+            animate={{
+              opacity: 1,
+              scale: 1,
+            }}
+            transition={{ duration: 0.2 }}
+          >
+            {isResumePage ? (
+              <IconDownload size={16} />
+            ) : (
+              <IconArrowRight size={16} />
+            )}
+          </motion.div>
+        </Link>
       </motion.div>
-      <motion.span 
-        className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0"
-        initial={{ opacity: 0 }}
-        whileHover={{ opacity: 0.4 }}
-        transition={{ duration: 0.3 }}
-      />
-    </Link>
+
+      {/* X Button - Liquid Morph Effect */}
+      <AnimatePresence>
+        {isResumePage && (
+          <motion.button
+            initial={{
+              scale: 0,
+              opacity: 0,
+              x: -20,
+            }}
+            animate={{
+              scale: 1,
+              opacity: 1,
+              x: 0,
+            }}
+            exit={{
+              scale: 0,
+              opacity: 0,
+              x: -20,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 25,
+            }}
+            onClick={handleBackClick}
+            className="flex items-center justify-center w-10 h-10 text-white bg-gradient-to-r from-red-500 to-red-600 rounded-full hover:from-red-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110"
+            whileHover={{
+              scale: 1.1,
+              rotate: 90,
+            }}
+            whileTap={{
+              scale: 0.95,
+            }}
+          >
+            <IconX size={20} />
+          </motion.button>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
