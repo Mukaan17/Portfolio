@@ -129,7 +129,25 @@ export const TechStack = () => {
       title: "Vercel",
       src: "/images/logos/vercel.png",
       className: "h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24",
-    }
+    },
+
+    // --- Added for MediSense AI ---
+    { title: "FastAPI", src: "/images/logos/fastapi.png", className: "h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24" },
+    { title: "Pydantic", src: "/images/logos/pydantic.png", className: "h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24" },
+    { title: "Uvicorn", src: "/images/logos/uvicorn.png", className: "h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24" },
+    { title: "WebSockets", src: "/images/logos/websockets.png", className: "h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24" },
+    { title: "PyTorch", src: "/images/logos/pytorch.png", className: "h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24" },
+    { title: "scikit-learn", src: "/images/logos/scikitlearn.png", className: "h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24" },
+    { title: "pandas", src: "/images/logos/pandas.png", className: "h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24" },
+    { title: "WhisperX", src: "/images/logos/whisperx.png", className: "h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24" },
+    
+    { title: "ChromaDB", src: "/images/logos/chromadb.png", className: "h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24" },
+    { title: "Sentence-Transformers", src: "/images/logos/sentancetransformer.png", className: "h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24" },
+    { title: "LangChain", src: "/images/logos/langchain.png", className: "h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24" },
+    { title: "Groq", src: "/images/logos/groq.png", className: "h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24" },
+    { title: "TypeScript", src: "/images/logos/typescript.png", className: "h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24" },
+    { title: "React", src: "/images/logos/react.png", className: "h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24" },
+    
   ];
 
   // Duplicate the stack for seamless scrolling

@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronRight, X } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 // Custom flowing download icon component
 function FlowingDownloadIcon() {
@@ -59,6 +60,7 @@ function FlowingDownloadIcon() {
 }
 
 export function LiquidMorphButton() {
+  const router = useRouter();
   const [isExpanded, setIsExpanded] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -66,6 +68,10 @@ export function LiquidMorphButton() {
   const handleMainClick = () => {
     if (!isExpanded) {
       setIsExpanded(true);
+      // Navigate to resume page shortly after expansion begins so animations are visible
+      window.setTimeout(() => {
+        router.push('/resume');
+      }, 150);
     } else if (!isDownloading) {
       // Start download
       setIsDownloading(true);
@@ -107,6 +113,8 @@ export function LiquidMorphButton() {
     setIsExpanded(false);
     setIsDownloading(false);
     setProgress(0);
+    // Go back to previous page (e.g., from /resume back to prior route)
+    router.back();
   };
 
   return (

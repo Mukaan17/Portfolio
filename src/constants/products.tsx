@@ -3,8 +3,62 @@ const projectChatbot = "/images/project-chatbot.png";
 const projectFacialRecog = "/images/project-facial-recog.png";
 const projectInstagram = "/images/project-instagram.png";
 const projectSubway = "/images/project-subway.png";
+const projectMediSense = "/images/project-medisense-ai.png";
 
 export const products = [
+  {
+    href: "https://github.com/Mukaan17/Multimodal-Clinical-Copilot---HopHacks-2025",
+    title: "MediSense AI",
+    description:
+      "AI-powered multimodal clinical copilot for real-time decision support. Analyzes medical images, transcribed conversations, and EHR data to produce structured differentials, risk factors, red‑flag alerts, and RAG-backed advisories.",
+    thumbnail: projectMediSense,
+    images: [projectMediSense],
+    stack: [
+      "LangChain",
+      "ChromaDB",
+      "Sentence-Transformers",
+      "TypeScript",
+    ],
+    slug: "medisense-ai",
+    content: (
+      <div>
+        <p>
+          An AI-powered multimodal clinical copilot that assists clinicians by
+          analyzing medical images, transcribed patient–doctor conversations, and
+          EHR data. It generates structured differential diagnoses, risk factors,
+          red‑flag alerts, and RAG-backed advisories designed for real-time
+          decision support and explainability.
+        </p>
+        <p>
+          The system supports voice input via <strong>WhisperX</strong> with speaker
+          diarization, fuses signals from text and imaging, and surfaces live
+          confidence/margin metrics with suggested follow‑up questions. It ships
+          with a mock EHR integration, an embeddings-powered knowledge base, and a
+          React UI for interactive clinical workflows.
+        </p>
+        <ul className="list-disc pl-6 mt-4 space-y-1">
+          <li>
+            <strong>Backend</strong>: FastAPI, Python, Pydantic, Uvicorn, WebSockets, python‑dotenv
+          </li>
+          <li>
+            <strong>ML/Vision</strong>: PyTorch, torchvision, OpenCLIP, timm, scikit‑learn, pandas
+          </li>
+          <li>
+            <strong>Speech</strong>: WhisperX, torchaudio, librosa, soundfile, PyAudio
+          </li>
+          <li>
+            <strong>RAG/LLM</strong>: ChromaDB, Sentence‑Transformers, LangChain, Groq API
+          </li>
+          <li>
+            <strong>Frontend</strong>: React 18, TypeScript, TailwindCSS, Axios, Framer Motion, react‑dropzone, react‑hot‑toast
+          </li>
+          <li>
+            <strong>Data/Infra</strong>: JSON EHR mock, env‑based configs, health checks, multimodal inference endpoints
+          </li>
+        </ul>
+      </div>
+    ),
+  },
   {
     href: "https://github.com/Mukaan17/Subway-Dashboard",
     title: "Subway Dashboard",
