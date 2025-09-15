@@ -64,6 +64,11 @@ export function LiquidMorphButton() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleMainClick = () => {
     if (!isExpanded) {
@@ -71,7 +76,7 @@ export function LiquidMorphButton() {
       // Navigate to resume page shortly after expansion begins so animations are visible
       window.setTimeout(() => {
         router.push('/resume');
-      }, 150);
+      }, 50);
     } else if (!isDownloading) {
       // Start download
       setIsDownloading(true);
@@ -85,11 +90,11 @@ export function LiquidMorphButton() {
       document.body.appendChild(link);
       
       // Simulate download progress with real download
-      const startTime = Date.now();
+      const startTime = isMounted ? Date.now() : 0;
       const downloadDuration = 2000; // 2 seconds for download simulation
       
       const progressInterval = setInterval(() => {
-        const elapsed = Date.now() - startTime;
+        const elapsed = isMounted ? Date.now() - startTime : 0;
         const newProgress = Math.min((elapsed / downloadDuration) * 100, 100);
         setProgress(newProgress);
         
@@ -113,9 +118,27 @@ export function LiquidMorphButton() {
     setIsExpanded(false);
     setIsDownloading(false);
     setProgress(0);
-    // Go back to previous page (e.g., from /resume back to prior route)
-    router.back();
+    
+    // Set flag for reverse page transition
+    sessionStorage.setItem('pageTransitionReversing', 'true');
+    
+    // Wait for the close animation to complete before navigating back
+    window.setTimeout(() => {
+      router.back();
+    }, 400); // Reduced delay for faster navigation
   };
+
+  // Prevent hydration mismatch by not rendering until mounted
+  if (!isMounted) {
+    return (
+      <div className="relative flex items-center">
+        <div className="bg-[#2a2d3a] text-white px-4 py-2 rounded-full flex items-center justify-between text-xs">
+          <span className="ml-2">View Resume</span>
+          <ChevronRight size={12} className="ml-2" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative flex items-center">

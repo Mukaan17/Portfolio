@@ -8,8 +8,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Auto-scrolling animation for tech stack */
-@keyframes scroll {
+/* Reliable infinite scrolling animation for tech stack */
+@keyframes infinite-scroll {
   0% {
     transform: translateX(0);
   }
@@ -18,12 +18,29 @@
   }
 }
 
-.animate-scroll {
-  animation: scroll 60s linear infinite;
+.animate-infinite-scroll {
+  animation: infinite-scroll 20s linear infinite;
+  will-change: transform;
+}
+
+/* Skills scroller animation - faster and smoother */
+@keyframes skills-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-skills-scroll {
+  animation: skills-scroll 30s linear infinite;
+  width: max-content;
 }
 
 /* Pause animation on hover */
-.animate-scroll:hover {
+.animate-infinite-scroll:hover,
+.hover\:pause-animation:hover {
   animation-play-state: paused;
 }
 

@@ -29,7 +29,7 @@ export const Sidebar = () => {
             animate={{ x: 0 }}
             transition={{ duration: 0.2, ease: "linear" }}
             exit={{ x: -200 }}
-            className="px-6 z-[100] py-10 bg-neutral-100 w-[14rem] fixed lg:relative h-screen left-0 flex flex-col overflow-hidden"
+            className="px-4 z-[100] py-10 bg-neutral-100 w-[14rem] fixed lg:relative h-screen left-0 flex flex-col overflow-hidden"
           >
             <div className="flex-1 overflow-y-auto">
               <SidebarHeader />
@@ -91,12 +91,12 @@ const SidebarHeader = () => {
       <Image
         src="/images/profile.jpg"
         alt="Mukhil Sundararaj"
-        width={40}
-        height={40}
+        width={48}
+        height={48}
         className="rounded-full"
       />
-      <div>
-        <h3 className="text-sm font-semibold text-primary">
+      <div className="min-w-0 flex-1">
+        <h3 className="text-sm font-semibold text-primary whitespace-nowrap">
           Mukhil Sundararaj
         </h3>
         <p className="text-xs text-secondary">Full Stack Developer</p>

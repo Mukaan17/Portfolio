@@ -1,6 +1,7 @@
 "use client";
 import { Paragraph } from "@/components/Paragraph";
 import { Heading } from "@/components/Heading";
+import { SkillsScroller } from "@/components/SkillsScroller";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -12,12 +13,13 @@ export default function About() {
     "https://images.unsplash.com/photo-1692445381633-7999ebc03730?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzM3x8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
   ];
 
-  const skills = [
-    'Java', 'Python', 'C++', 'Swift', 'Rust', 'Spring', 'Flask', 'TensorFlow',
-    'PostgreSQL', 'Oracle', 'MongoDB', 'MySQL', 'AWS', 'Kubernetes', 'Docker',
-    'Git', 'VS Code', 'Node.js', 'Next.js', 'React', 'JavaScript', 'TypeScript',
-    'Jenkins', 'Jira', 'Figma', 'Tailwind CSS', 'Vercel'
-  ];
+  const skillGroups = {
+    'Programming Languages': ['Java', 'Python', 'C++', 'Swift', 'Rust', 'JavaScript', 'TypeScript'],
+    'Frameworks & Libraries': ['Spring', 'Flask', 'Node.js', 'Next.js', 'React', 'TensorFlow'],
+    'Databases': ['PostgreSQL', 'Oracle', 'MongoDB', 'MySQL'],
+    'Cloud & DevOps': ['AWS', 'Kubernetes', 'Docker', 'Jenkins', 'Vercel'],
+    'Tools & Design': ['Git', 'VS Code', 'Jira', 'Figma', 'Tailwind CSS']
+  };
 
   return (
     <div>
@@ -82,19 +84,7 @@ export default function About() {
         </div>
 
         <Heading as="h3" className="text-2xl font-semibold mt-8 mb-4">Skills</Heading>
-        <div className="flex flex-wrap gap-2">
-          {skills.map((skill, index) => (
-            <motion.span
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-              className="px-4 py-2 bg-gray-800 rounded-full text-sm hover:bg-gray-700 transition-colors text-gray-300"
-            >
-              {skill}
-            </motion.span>
-          ))}
-        </div>
+        <SkillsScroller skillGroups={skillGroups} />
 
         <Paragraph className="mt-8">
           My journey in technology has been driven by a curiosity to understand and create solutions 
